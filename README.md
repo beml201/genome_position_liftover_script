@@ -48,8 +48,8 @@ The environment can then be deactivated for other scripts to be used using:
 | header                | --header / --no-header| Include --header if input file has a header (skips first row)              |
 | delimiter             | --delim               | Delimiter of the input file (default is space)                             |
 | delimiter (of output) | --delim_out           | Delimiter to use for the new output file (defaults to tab delimited)       |
-| output file name      | --out                 | Output filename (default will be \[*build_to*]_converted_\[*Input file*] |
+| output file name      | --out                 | Output filename (default will be \[*build_to*]\_converted_\[*Input file*] |
 
 ### Outputs
-A tab delimited file with name \[*build to*]_converted_\[*file name*]
-Only the posiitons column of the file will be updated, all other columns will remain the same
+A tab delimited file with name \[*build to*]\_converted_\[*file name*]
+Only the positions column of the file will be updated, all other columns will remain the same
