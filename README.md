@@ -38,4 +38,18 @@ The environment can then be deactivated for other scripts to be used using:
 ## Usage
 ### Inputs
 
+| Input Name            | Flag (if available)   | About                                                                      |
+|-----------------------|-----------------------|----------------------------------------------------------------------------|
+| chr                   |                       | Column number of the chromosomes (0-indexed)                               |
+| pos                   |                       | Column number of the positions to move over                                |
+| build_from            |                       | Build number file is currently in (eg b38)                                 |
+| build_to              |                       | Build number of converted file (eg hg19)                                   |
+| file                  |                       | Input file (file to convert to new build)                                  |
+| header                | --header / --no-header| Include --header if input file has a header (skips first row)              |
+| delimiter             | --delim               | Delimiter of the input file (default is space)                             |
+| delimiter (of output) | --delim_out           | Delimiter to use for the new output file (defaults to tab delimited)       |
+| output file name      | --out                 | Output filename (default will be \[*build_to*]_converted_\[*Input file*] |
+
 ### Outputs
+A tab delimited file with name \[*build to*]_converted_\[*file name*]
+Only the posiitons column of the file will be updated, all other columns will remain the same
