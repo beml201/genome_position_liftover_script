@@ -33,7 +33,7 @@ Activate the environment:
 
 ``` conda activate liftover ```
 
-The python file can then be used. For help on the command line inputs use (within teh directory the python file is in):
+The python file can then be used. For help on the command line inputs use (within the directory the python file is in):
 
 ``` ./liftover.py -h ```
 
