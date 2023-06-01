@@ -45,7 +45,6 @@ file2 = open(args.out, 'w+')
 
 if args.header:
     file2.write(file1.readline())
-    next(file1)
 
 line_count = 0
 missing_count = 0
@@ -54,17 +53,20 @@ for line in file1:
         out = line.split()
     else:
         out = line.split(args.delim)
+        
     if 'chr' not in out[args.chr]:
-        out[args.chr] = 'chr' + str(out[args.chr])
-    new_pos = lo.convert_coordinate(out[args.chr], int(out[args.pos]))
+        new_pos = lo.convert_coordinate('chr' + str(out[args.chr]), int(out[args.pos]))
+    else:
+        new_pos = lo.convert_coordinate(str(out[args.chr]), int(out[args.pos]))
+    
     if len(new_pos) == 0:
         out[args.pos] = 'NA'
         missing_count +=1
     else:
         out[args.pos] = new_pos[0][1]
     out = [str(x) for x in out]
-    out.append('\n')
     out = args.delim_out.join(out)
+    out = out + '\n'
     file2.write(out)
     line_count+=1
     if line_count % 3_000_000 == 0:
