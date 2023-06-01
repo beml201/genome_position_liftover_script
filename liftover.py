@@ -55,15 +55,19 @@ for line in file1:
         out = line.split(args.delim)
         
     if 'chr' not in out[args.chr]:
-        new_pos = lo.convert_coordinate('chr' + str(out[args.chr]), int(out[args.pos]))
+        out[args.chr] = 'chr' + str(out[args.chr])
+        chr_replace = ''
     else:
-        new_pos = lo.convert_coordinate(str(out[args.chr]), int(out[args.pos]))
+        chr_replace = 'chr'
+    new_pos = lo.convert_coordinate(out[args.chr], int(out[args.pos]))
     
     if len(new_pos) == 0:
         out[args.pos] = 'NA'
         missing_count +=1
     else:
         out[args.pos] = new_pos[0][1]
+        out[args.chr] = new_pos[0][0].replace('chr', chr_replace)
+        
     out = [str(x) for x in out]
     out = args.delim_out.join(out)
     out = out + '\n'
