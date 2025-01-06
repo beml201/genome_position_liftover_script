@@ -1,2 +1,3 @@
-
+testing/
 .Rhistory
+*.ipynb_checkpoints*
